@@ -42,10 +42,16 @@ ctrl-w
 #===============================================================================
 
 # sed command replaces a given line with a different one within a file
-sed -i -e's/ldap01.util.phx2.redhat.com/ldap.corp.redhat.com/' /usr/bin/linfo
 
-# Another example
-sed -i "s|linetobechanged|yournewline|g" /path/to/file/to/be/changed.xml
+sed -i 's|someLineInFile =.*$|someLineInFile = pAs5wUr#d!3Fsg!ds|' someFile.txt
+
+# another example: (note that we are using / instead of | as the delimiter. You have that option.)
+
+sed -i -e's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
+
+# another example:
+
+sed -i -r 's/DocumentRoot \"\/var\/www\/html\"/\#DocumentRoot \"\/var\/www\/html\"/' /etc/httpd/conf/httpd.conf
 
 # Append comma after every word in a line
 sed 's/\>/,/g' somefilename
